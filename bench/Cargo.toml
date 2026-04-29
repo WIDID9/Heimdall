@@ -1,0 +1,33 @@
+[package]
+name = "revm_bench"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# revm with alloydb support
+revm = { version = "36", features = ["std", "alloydb"] }
+
+# async runtime
+tokio = { version = "1", features = ["rt-multi-thread", "macros"] }
+
+# alloy for RPC interaction (versions aligned with revm v36 workspace)
+alloy-provider = { version = "1.4", default-features = true }
+alloy-eips = "1.4"
+alloy-consensus = "1.4"
+alloy-rpc-types = "1.4"
+
+# misc
+anyhow = "1"
+
+[[bin]]
+name = "revm_bench"
+path = "src/main.rs"
+
+[[bin]]
+name = "bench"
+path = "src/bench.rs"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1

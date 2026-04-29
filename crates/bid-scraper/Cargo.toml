@@ -1,0 +1,88 @@
+[package]
+name = "bid-scraper"
+description = "bid-scraper"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+homepage.workspace = true
+repository.workspace = true
+exclude.workspace = true
+
+[package.metadata.deb]
+maintainer = "Flashbots Team <devops+ci@flashbots.net>"
+depends = "$auto"
+section = "network"
+priority = "optional"
+maintainer-scripts = "pkg/debian"
+assets = [
+    [
+        "target/release/**/bid-scraper",
+        "usr/bin/",
+        "755",
+    ],
+    [
+        "pkg/etc/config.toml",
+        "etc/bid-scraper/",
+        "644",
+    ],
+    [
+        "../../LICENSE-APACHE",
+        "usr/share/doc/bid-scraper/",
+        "644",
+    ],
+    [
+        "../../LICENSE-MIT",
+        "usr/share/doc/bid-scraper/",
+        "644",
+    ],
+]
+systemd-units = { enable = false, start = false, unit-name = "bid-scraper" }
+
+[dependencies]
+rbuilder-config.workspace = true
+
+alloy-primitives.workspace = true
+alloy-provider.workspace = true
+alloy-rpc-types-beacon.workspace = true
+
+tokio = { workspace = true, default-features = false, features = [
+    "rt",
+    "rt-multi-thread",
+    "macros",
+    "signal",
+] }
+tokio-util.workspace = true
+tracing = "0.1.37"
+serde_json = { workspace = true }
+serde = { workspace = true }
+serde_with = { version = "3.9.0", features = ["time_0_3"] }
+futures.workspace = true
+futures-retry = "0.6"
+runng = "^0.3"
+reqwest = { version = "^0.11", default-features = false, features = [
+    "rustls",
+    "gzip",
+    "brotli",
+    "deflate",
+    "json",
+    "rustls-tls",
+] }
+lru = "^0.10"
+async-trait = "^0.1"
+tokio-tungstenite = { version = "0.26.2", features = [
+    "rustls-tls-native-roots",
+] }
+tokio-stream.workspace = true
+futures-util.workspace = true
+ethereum_ssz_derive = "0.9"
+ethereum_ssz = "0.9"
+derivative.workspace = true
+eyre.workspace = true
+thiserror.workspace = true
+parking_lot.workspace = true
+strum = { version = "0.25", features = ["derive"] }
+exponential-backoff.workspace = true
+
+[dev-dependencies]
+proptest.workspace = true
