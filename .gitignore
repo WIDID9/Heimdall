@@ -1,0 +1,35 @@
+# Build output
+/target/
+**/target/
+
+# Experimental artifacts and external fixtures
+/experiments/
+/bench/
+**/benches/
+**/test_data/
+**/testdata/
+/scripts/
+/output/
+/data/
+/datasets/
+/cache/
+*.csv
+*.tsv
+*.log
+*.gz
+*.sqlite
+*.sqlite3
+*.db
+
+# Local credentials and configuration
+.env
+.env.*
+*.pem
+*.key
+config-local.toml
+
+# Editor and operating-system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

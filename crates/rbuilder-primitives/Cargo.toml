@@ -58,11 +58,3 @@ rand.workspace = true
 criterion.workspace = true
 proptest.workspace = true
 ring = "0.17"
-
-[[bench]]
-name = "sha_pair"
-harness = false
-
-[[bench]]
-name = "ssz_proof"
-harness = false
