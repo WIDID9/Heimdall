@@ -37,3 +37,5 @@ Unit-test source and the embedded contract fixture are retained. Tests that requ
 The builder implementation is derived from [Flashbots rbuilder](https://github.com/flashbots/rbuilder). It uses [Reth](https://github.com/paradigmxyz/reth) and [revm](https://github.com/bluealloy/revm). Existing upstream attribution is retained.
 
 Licensed under either the [MIT license](LICENSE-MIT) or the [Apache License, Version 2.0](LICENSE-APACHE), as specified by the workspace.
+
+<!-- push test: 2026-11-21T05:11:49Z -->
